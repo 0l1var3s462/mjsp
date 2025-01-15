@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menú principal -->
+    <record id="menu_main_auditoria" model="ir.ui.menu">
+        <field name="name">Auditoría</field>
+        <field name="sequence">10</field>
+        <field name="web_icon">project,static/description/icon.png</field>
+    </record>
+
+    <!-- Acción para proyectos de auditoría -->
+    <record id="action_view_auditoria_project" model="ir.actions.act_window">
+        <field name="name">Proyectos de Auditoría</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_project_kanban_inherited')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_project_form_inherited')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo proyecto de auditoría
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción para tareas de auditoría -->
+    <record id="action_view_auditoria_task" model="ir.actions.act_window">
+        <field name="name">Tareas de Auditoría</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_task_kanban_inherited')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_task_form_inherited')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear una nueva tarea de auditoría
+            </p>
+        </field>
+    </record>
+
+    <!-- Menú para proyectos -->
+    <record id="menu_auditoria_project" model="ir.ui.menu">
+        <field name="name">Proyectos</field>
+        <field name="parent_id" ref="menu_main_auditoria"/>
+        <field name="action" ref="action_view_auditoria_project"/>
+        <field name="sequence">1</field>
+    </record>
+
+    <!-- Menú para tareas -->
+    <record id="menu_auditoria_task" model="ir.ui.menu">
+        <field name="name">Tareas</field>
+        <field name="parent_id" ref="menu_main_auditoria"/>
+        <field name="action" ref="action_view_auditoria_task"/>
+        <field name="sequence">2</field>
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_audit_year,access.project.audit.year,model_project_audit_year,project.group_project_user,1,1,1,1
+access_project_assignment_number,access.project.assignment.number,model_project_assignment_number,project.group_project_user,1,1,1,1
+access_project_reference_index,access.project.reference.index,model_project_reference_index,project.group_project_user,1,1,1,1
+access_project_department,access.project.department,model_project_department,project.group_project_user,1,1,1,1
+access_project_report_number,access.project.report.number,model_project_report_number,project.group_project_user,1,1,1,1
